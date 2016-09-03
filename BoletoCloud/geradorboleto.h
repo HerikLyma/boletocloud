@@ -22,6 +22,9 @@ class GeradorBoleto
     QByteArray userName;
     QByteArray password;
     QByteArray lastError;
+    QByteArray tokenBoleto;
+    QByteArray url;
+    QByteArray nossoNumero;
 public:
     GeradorBoleto(const Boleto &boleto, const QByteArray &userName,
                   const QByteArray &password = "token");
@@ -29,6 +32,9 @@ public:
     bool generate(const QString &fileName);
 
     QByteArray getLastError() const;
+    QByteArray getTokenBoleto() const;
+    QByteArray getUrl() const;
+    QByteArray getNossoNumero() const;
 };
 
 #endif // GERADORBOLETO_H

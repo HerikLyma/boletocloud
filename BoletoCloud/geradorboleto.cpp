@@ -6,6 +6,7 @@
 
 #include "geradorboleto.h"
 
+
 GeradorBoleto::GeradorBoleto(const Boleto &boleto, const QByteArray &userName,
                              const QByteArray &password) : boleto(boleto),
                                                            userName(userName),
@@ -51,6 +52,9 @@ bool GeradorBoleto::generate(const QString &fileName)
         {
             if(boletoFile.write(retorno) != -1)
             {
+                tokenBoleto = reply->rawHeader("X-BoletoCloud-Token");
+                url = "https://sandbox.boletocloud.com/boleto/2via/" + tokenBoleto;
+                nossoNumero = reply->rawHeader("X-BoletoCloud-NIB-Nosso-Numero");
                 boletoFile.close();
             }
             else
@@ -102,4 +106,19 @@ bool GeradorBoleto::generate(const QString &fileName)
 QByteArray GeradorBoleto::getLastError() const
 {
     return lastError;
+}
+
+QByteArray GeradorBoleto::getTokenBoleto() const
+{
+    return tokenBoleto;
+}
+
+QByteArray GeradorBoleto::getUrl() const
+{
+    return url;
+}
+
+QByteArray GeradorBoleto::getNossoNumero() const
+{
+    return nossoNumero;
 }

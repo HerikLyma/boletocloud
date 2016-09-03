@@ -20,13 +20,13 @@ int main(int argc, char *argv[])
 
     //Digite o PDF do boleto. Ex.: /home/pc/boleto_joao.pdf
     std::string fileName;
-    std::cout << "Digite o PDF do boleto: ";
+    std::cout << "Salvar como: ";
     std::cin >> fileName;
 
     //Preparando o boleto
     Boleto boleto;
 
-    //Token da conta bancária
+    //Token da conta bancária    
     boleto.setTokenContaBancaria("api-key_TOKEN_SUA_CONTA_BANCARIA");
     boleto.setDocumento("DOC-XPTO");
     boleto.setEmissao("2014-07-11");
@@ -45,12 +45,16 @@ int main(int argc, char *argv[])
 
 
     //Informar o token da sua conta de usuário (diferente do token da conta bancária).
-    GeradorBoleto geradorBoleto(boleto, "api-key__TOKEN_SUA_CONTA", "token");
+    GeradorBoleto geradorBoleto(boleto, "api-key_TOKEN_SUA_CONTA", "token");
 
     //Tenta gerar o boleto
     if(geradorBoleto.generate(fileName.data()))
     {
-        std::cout << "\n\nBoleto " << fileName << " gerado com sucesso.";
+        std::cout << "\n\nBoleto: " << fileName << " gerado com sucesso.";
+        std::cout << "\nNosso numero: " << geradorBoleto.getNossoNumero().data();
+        std::cout << "\nToken: " << geradorBoleto.getTokenBoleto().data();
+        std::cout << "\nURL: " << geradorBoleto.getUrl().data();
+
     }
     else
     {
