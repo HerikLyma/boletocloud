@@ -1,0 +1,14 @@
+language: cpp
+os:
+  - osx
+  - linux
+sudo: required
+dist: trusty
+compiler:
+  - clang
+  - gcc
+
+addons:
+  apt:
+    packages:
+      - qt5-default
