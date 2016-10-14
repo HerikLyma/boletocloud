@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
     }
     else
     {
-        std::cout << "\n\nOcorreu um erro \n\n" << geradorBoleto.getLastError().toStdString();
+        std::cout << "\n\nOcorreu um erro \n\n" << geradorBoleto.getLastError().constData();
     }
 
     std::cout << "\n\n\n----------------------------------Fim----------------------------------\n\n\n";

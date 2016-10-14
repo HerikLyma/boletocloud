@@ -16,3 +16,7 @@ SOURCES += main.cpp \
 HEADERS += \
     boleto.h \
     geradorboleto.h
+
+#DESTDIR=build
+#OBJECTS_DIR=build
+#MOC_DIR=build
