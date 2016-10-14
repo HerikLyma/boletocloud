@@ -1,3 +1,5 @@
+[![Travis-CI](https://travis-ci.org/HerikLyma/boletocloud.svg?branch=master)](https://travis-ci.org/HerikLyma/boletocloud)
+
 # Boleto Cloud
 
 Criação de boletos via web services Boleto Cloud utilizando C++ com Qt
